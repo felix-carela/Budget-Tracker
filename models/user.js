@@ -1,6 +1,16 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+const incomesSchema = new Schema({
+  income: String,
+  amount: Number
+});
+
+const expensesSchema = new Schema({
+  expense: String,
+  amount: Number
+});
+
 const userSchema = new Schema({
   name: String,
   googleId: {
@@ -8,8 +18,8 @@ const userSchema = new Schema({
     required: true,
   },
   email: String,
-  // incomes: [incomeSchema],
-  // expenses: [expenseSchema],
+  incomes: [incomesSchema],
+  expenses: [expensesSchema]
 });
 
 module.exports = mongoose.model("User", userSchema);

@@ -1,9 +1,9 @@
 const User = require("../models/user");
-const Income = require("../models/income");
-const Expense = require("../models/expense");
 
 module.exports = {
-    index
+    index,
+    newIncome,
+    newExpense
 }
 
 function index(req, res, next) {
@@ -16,3 +16,10 @@ function index(req, res, next) {
     });
 }
 
+function newIncome(req, res, next) {
+    res.render('incomes/new');
+}
+
+function newExpense(req, res, next) {
+    res.render('expenses/new');
+}
