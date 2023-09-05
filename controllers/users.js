@@ -17,9 +17,9 @@ function index(req, res, next) {
 }
 
 function newIncome(req, res, next) {
-    res.render('incomes/new');
+    res.render('users/incomes/new');
 }
 
 function newExpense(req, res, next) {
-    res.render('expenses/new');
+    res.render('users/expenses/new');
 }
