@@ -2,12 +2,14 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const incomesSchema = new Schema({
-  income: String,
+  incomeType: String,
+  incomeName: String,
   amount: Number
 });
 
 const expensesSchema = new Schema({
-  expense: String,
+  expenseType: String,
+  expenseName: String,
   amount: Number
 });
 

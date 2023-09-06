@@ -2,11 +2,9 @@ const User = require("../models/user");
 
 module.exports = {
     index,
-    newIncome,
-    newExpense
 }
 
-function index(req, res, next) {
+async function index(req, res, next) {
     res.render("users/index", {
         user: req.user,
         name: req.query.name,
@@ -16,10 +14,22 @@ function index(req, res, next) {
     });
 }
 
-function newIncome(req, res, next) {
-    res.render('users/incomes/new');
-}
+// async function newIncome(req, res, next) {
+//     res.render('users/incomes/new');
+// }
 
-function newExpense(req, res, next) {
-    res.render('users/expenses/new');
-}
+// async function newExpense(req, res, next) {
+//     res.render('users/expenses/new');
+// }
+
+// async function create(req, res, next) {
+//     try {
+//         await User.create(req.body);
+//         res.redirect("/users");
+//     } catch (err) {
+//         res.redirect("/users");
+//     }
+// }
+
+
+// const user = await User.findOne({ googleId: req.user.googleId });
