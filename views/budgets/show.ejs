@@ -4,11 +4,7 @@
   <div>Month:</div>
   <div><%= budget.month %></div>
   <div>Year:</div>
-  <div><%= budget.dateCreated %></div>
-  <div>Name of person:</div>
-  <div><%= budget.nameOfPerson %></div>
-  <div>Has month passed:</div>
-  <div><%= budget.passMonth ? 'Yes' : 'No' %></div>
+  <div><%= budget.year %></div>
 </section>
 
   <form
@@ -17,7 +13,7 @@
     action="/budgets/<%= budget._id %>/incomes"
   >
     <label for="income-name">Income Name:</label>
-    <textarea id="income-name" name="name"></textarea>
+    <textarea id="income-name" name="incomeName"></textarea>
     <label for="income-amount">Amount:</label>
     <textarea id="income-amount" name="amount"></textarea>
     <input type="submit" value="Add Income" />
@@ -27,25 +23,14 @@
   <table>
     <thead>
       <tr>
-        <th>User</th>
-        <th>Date</th>
-        <th>Name</th>
+        <th>Income Name</th>
         <th>Amount</th>
-        <th></th>
       </tr>
     </thead>
     <tbody>
       <% budget.incomes.forEach(function(i) { %>
       <tr>
-        <td class="incomes-user">
-          <img
-            alt="avatar"
-            src="<%= i.userAvatar %>"
-            referrerpolicy="no-referrer"
-          /><%= i.userName %>
-        </td>
-        <td><%= i.createdAt.toLocaleDateString() %></td>
-        <td><%= i.name %></td>
+        <td><%= i.incomeName %></td>
         <td><%= i.amount %></td>
         <td>
           <form action="/incomes/<%= i._id %>?_method=DELETE" method="POST">
@@ -79,24 +64,13 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
-      <th>Date</th>
       <th>Expense Name</th>
       <th>Amount</th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
     <% budget.expenses.forEach(function(e) { %>
     <tr>
-      <td class="expense-user">
-        <img
-          alt="avatar"
-          src="<%= e.userAvatar %>"
-          referrerpolicy="no-referrer"
-        /><%= e.userName %>
-      </td>
-      <td><%= e.createdAt.toLocaleDateString() %></td>
       <td><%= e.expenseName %></td>
       <td><%= e.amount %></td>
       <td>

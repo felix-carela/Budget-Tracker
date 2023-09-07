@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const incomeSchema = new Schema({
-  name: {
+  incomeName: {
     type: String,
     required: true,
   },
@@ -14,8 +14,7 @@ const incomeSchema = new Schema({
     ref: 'User',
     required: true
   },
-  userName: String,
-  userAvatar: String
+  userName: String
 }, {
   timestamps: true
 });
@@ -34,23 +33,19 @@ const expenseSchema = new Schema({
     ref: 'User',
     required: true
   },
-  userName: String,
-  userAvatar: String
+  userName: String
 }, {
   timestamps: true
 });
 
 const budgetSchema = new Schema({
   month: { type: String, required: true },
-  dateCreated: {
+  year: {
     type: Number,
     default: function() {
       return new Date().getFullYear();
     },
     min: 2023,
-  },
-  nameOfPerson: {
-    type: String
   },
   passMonth: { type: Boolean, default: false },
   incomes: [incomeSchema],

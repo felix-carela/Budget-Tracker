@@ -1,27 +1,34 @@
-<%- include('../partials/header') %> <% if (user) { %>
+<%- include('../partials/header') %>
 
-<table id="list">
-  <thead>
-    <tr>
-      <th>Month</th>
-      <th>Year</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% budgets.forEach(function(b) { %>
-    <tr>
-      <td><%= b.month %></td>
-      <td><%= b.dateCreated %></td>
-      <td><a href="/budgets/<%= b._id %>">DETAILS</a></td>
-    </tr>
-    <td>
-      <form action="/budgets/<%= b._id %>?_method=DELETE" method="POST">
-        <button type="submit">X</button>
-      </form>
-    </td>
-    <% }); %>
-  </tbody>
-</table>
+<% if (user) { %>
+  <table id="list">
+    <thead>
+      <tr>
+        <th>Month</th>
+        <th>Year</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% budgets.forEach(function(b) { %>
+        <tr>
+          <td><%= b.month %></td>
+          <td><%= b.year %></td>
+          <td>
+            <a href="/budgets/<%= b._id %>">View Budget</a>
+            <a href="/budgets/<%= b._id %>/edit">Edit Budget</a> <!-- Add the Edit link -->
+          </td>
+          <td>
+            <form action="/budgets/<%= b._id %>?_method=DELETE" method="POST">
+              <button type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
 <% } else { %>
-<h2>Please log in to view your budgets.</h2>
-<% } %> <%- include('../partials/footer') %>
+  <h2>Please log in to view budgets.</h2>
+<% } %>
+
+<%- include('../partials/footer') %>

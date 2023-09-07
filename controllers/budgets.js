@@ -1,11 +1,14 @@
 const Budget = require('../models/budget');
+const User = require('../models/user');
 
 module.exports = {
   index,
   show,
   new: newBudget,
   create,
-  delete: deleteBudget
+  delete: deleteBudget,
+  update: updateBudget,
+  edit
 };
 
 async function index(req, res) {
@@ -14,7 +17,6 @@ async function index(req, res) {
 }
 
 async function show(req, res) {
-  console.log('Budgets show function:', req.params)
   const budget = await Budget.findById(req.params.id);
   res.render('budgets/show', { budget });
 }
@@ -24,11 +26,6 @@ function newBudget(req, res) {
 }
 
 async function create(req, res) {
-  console.log('Budgets create function:', req.body)
-  req.body.passMonth = !!req.body.passMonth;
-  for (let key in req.body) {
-    if (req.body[key] === '') delete req.body[key];
-  }
   try {
     const budget = await Budget.create(req.body);
     res.redirect(`/budgets/${budget._id}`);
@@ -39,7 +36,44 @@ async function create(req, res) {
 }
 
 async function deleteBudget(req, res) {
-  console.log('Budgets delete function:', req.params)
   await Budget.findByIdAndDelete(req.params.id);
   res.redirect('/budgets');
+}
+
+async function updateBudget(req, res) {
+  try {
+    const budgetId = req.params.id;
+    const updatedBudgetData = req.body;
+
+    // Find and update the budget
+    const updatedBudget = await Budget.findByIdAndUpdate(
+      budgetId,
+      updatedBudgetData,
+      { new: true }
+    );
+
+    if (!updatedBudget) {
+      // If the budget with the given ID is not found
+      return res.status(404).send("Budget not found");
+    }
+
+    // Redirect to the updated budget's page or any other desired action
+    res.redirect(`/budgets/${updatedBudget._id}`);
+  } catch (err) {
+    console.error(err);
+    res.render('budgets/edit', {
+      errorMsg: err.message,
+      budget: req.body, // Pass the original data back to the edit form
+    });
+  }
+}
+
+async function edit(req, res) {
+  try {
+    const budget = await Budget.findById(req.params.id);
+    res.render('budgets/edit', { budget });
+  } catch (err) {
+    console.error(err);
+    res.redirect('/budgets'); // Redirect to the budgets index or handle the error appropriately
+  }
 }

@@ -25,39 +25,6 @@ passport.use(new GoogleStrategy(
   }
 ));
 
-// passport.use(new GoogleStrategy(
-//   {
-//     clientID: process.env.GOOGLE_CLIENT_ID,
-//     clientSecret: process.env.GOOGLE_SECRET,
-//     callbackURL: process.env.GOOGLE_CALLBACK,
-//   },
-//   async function(accessToken, refreshToken, profile, cb) {
-//     try {
-//       const allowedEmails = ['felixacarela@gmail.com'];
-//       const userEmail = profile.emails[0].value;
-
-//       if (allowedEmails.includes(userEmail)) {
-//         let user = await User.findOne({ googleId: profile.id });
-//         if (user) return cb(null, user);
-        
-//         user = await User.create({
-//           name: profile.displayName,
-//           googleId: profile.id,
-//           email: userEmail,
-//           avatar: profile.photos[0].value,
-//         });
-        
-//         return cb(null, user);
-//       } else {
-//         // User's email is not allowed, reject authentication
-//         return cb(null, false, { message: 'Unauthorized email' });
-//       }
-//     } catch (err) {
-//       return cb(err);
-//     }
-//   }
-// ));
-
 passport.serializeUser(function(user, cb) {
   cb(null, user._id);
 });
