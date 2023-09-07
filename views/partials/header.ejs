@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-    <title>Lean Gainz Meal Prep</title>
-  </head>
-  <body>
-    <nav>
-      <% if (user) { %>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+  <nav>
+    <% if (user) { %>
+      <a href="/budgets">ALL MONTHLY BUDGETS</a>
+      <a href="/budgets/new">ADD BUDGET</a>
       <a href="/logout">LOG OUT</a>
-      <% } else { %>
-      <a href="/auth/google" class="login"
-        >LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"
-      /></a>
-      <% } %>
-    </nav>
-    <main>
-      
+    <% } else { %>
+      <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+    <% } %>
+  </nav>
+  <main>

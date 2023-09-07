@@ -1,0 +1,27 @@
+<%- include('../partials/header') %> <% if (user) { %>
+
+<table id="list">
+  <thead>
+    <tr>
+      <th>Month</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% budgets.forEach(function(b) { %>
+    <tr>
+      <td><%= b.month %></td>
+      <td><%= b.dateCreated %></td>
+      <td><a href="/budgets/<%= b._id %>">DETAILS</a></td>
+    </tr>
+    <td>
+      <form action="/budgets/<%= b._id %>?_method=DELETE" method="POST">
+        <button type="submit">X</button>
+      </form>
+    </td>
+    <% }); %>
+  </tbody>
+</table>
+<% } else { %>
+<h2>Please log in to view your budgets.</h2>
+<% } %> <%- include('../partials/footer') %>

@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+
+<form id="new-form" action="/budgets" method="POST">
+  <label>Month:</label>
+  <input type="text" name="month">
+  <label>Year:</label>
+  <input type="text" name="releaseYear">
+  <label>Name of person:</label>
+  <input type="text" name="nameOfPerson">
+  <label>Has month passed:</label>
+  <input type="checkbox" name="passedMonth" checked>
+  <input type="submit" value="Add Budget">
+</form>
+
+<%- include('../partials/footer') %>

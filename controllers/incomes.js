@@ -1,19 +1,33 @@
-const User = require("../models/user");
+const Budget = require('../models/budget');
 
 module.exports = {
-    index,
-    create
+  create,
+  delete: deleteIncomes
+};
+
+async function deleteIncomes(req, res) {
+  const budget = await Budget.findOne({ 'incomes._id': req.params.id, 'incomes.user': req.user._id });
+  if (!budget) return res.redirect('/budgets');
+  budget.incomes.remove(req.params.id);
+  await budget.save();
+  res.redirect(`/budgets/${budget._id}`);
 }
 
-async function index(req, res, next) {
-    res.render("incomes/new", {
-        user: req.user,
-        name: req.query.name,
-        email: req.query.email,
-        incomes: req.query.incomes,
-        expenses: req.query.expenses,
-    });
-}
+async function create(req, res) {
+  console.log('Incomes create function:', req.params)
+  console.log('Incomes create function:', req.params.id)
+  console.log('Incomes create function:', req.body)
+  const budget = await Budget.findById(req.params.id);
 
-async function create(req, res, next) {
+  req.body.user = req.user._id;
+  req.body.userName = req.user.name;
+  req.body.userAvatar = req.user.avatar;
+
+  budget.incomes.push(req.body);
+  try {
+    await budget.save();
+  } catch (err) {
+    console.log(err);
+  }
+  res.redirect(`/budgets/${budget._id}`);
 }

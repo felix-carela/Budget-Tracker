@@ -1,30 +1,30 @@
-var express = require("express");
+var express = require('express');
 var router = express.Router();
-const passport = require("passport");
+const passport = require('passport');
 
-router.get("/", function (req, res, next) {
-  res.render("index", { title: "Budget Tracker Application" });
+router.get('/', function(req, res, next) {
+  res.redirect('/budgets');
 });
 
-router.get(
-  "/auth/google",
-  passport.authenticate("google", {
-    scope: ["profile", "email"],
-    // prompt: "select_account"
-  })
-);
+router.get('/auth/google', passport.authenticate(
+  'google',
+  {
+    scope: ['profile', 'email'],
+    prompt: "select_account"
+  }
+));
 
-router.get(
-  "/oauth2callback",
-  passport.authenticate("google", {
-    successRedirect: "/users",
-    failureRedirect: "/",
-  })
-);
+router.get('/oauth2callback', passport.authenticate(
+  'google',
+  {
+    successRedirect: '/budgets',
+    failureRedirect: '/budgets'
+  }
+));
 
-router.get("/logout", function (req, res) {
-  req.logout(function () {
-    res.redirect("/");
+router.get('/logout', function(req, res){
+  req.logout(function() {
+    res.redirect('/budgets');
   });
 });
 

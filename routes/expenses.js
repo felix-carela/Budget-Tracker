@@ -1,8 +1,9 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const expensesCtrl = require('../controllers/expenses');
+const ensureLoggedIn = require('../config/ensureLoggedIn');
 
-router.get('/users/incomes/new', expensesCtrl.index);
-router.post('/users/:id/expenses', expensesCtrl.create);
+router.post('/budgets/:id/expenses', ensureLoggedIn, expensesCtrl.create);
+router.delete('/expenses/:id', ensureLoggedIn, expensesCtrl.delete);
 
 module.exports = router;
