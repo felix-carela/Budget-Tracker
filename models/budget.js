@@ -55,3 +55,5 @@ const budgetSchema = new Schema({
 });
 
 module.exports = mongoose.model('Budget', budgetSchema);
+
+// Path: controllers/budgets.js
