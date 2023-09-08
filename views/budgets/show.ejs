@@ -12,17 +12,17 @@
   method="POST"
   action="/budgets/<%= budget._id %>/incomes"
 >
-  <label>Category:</label>
+  <label class="show-input">Category:</label>
   <select name="category">
     <option value="Salary">Salary</option>
     <option value="Investments">Investments</option>
     <option value="Other">Other</option>
   </select>
-  <label>Income Name:</label>
+  <label class="show-input">Income Name:</label>
   <input type="text" name="incomeName" />
-  <label>Amount:</label>
+  <label class="show-input">Amount:</label>
   <input type="text" name="amount" />
-  <input type="submit" value="Add Income" />
+  <input type="submit" value="Add Income" class="show-button" />
 </form>
 
 <form
@@ -30,7 +30,7 @@
   method="POST"
   action="/budgets/<%= budget._id %>/expenses"
 >
-  <label>Category:</label>
+  <label class="show-input">Category:</label>
   <select name="category">
     <option value="Housing">Housing</option>
     <option value="Transportation">Transportation</option>
@@ -41,28 +41,49 @@
     <option value="Retirement">Discretionary</option>
     <option value="Other">Other</option>
   </select>
-  <label>Expense Name:</label>
+  <label class="show-input">Expense Name:</label>
   <input type="text" name="expenseName" />
-  <label>Amount:</label>
+  <label class="show-input">Amount:</label>
   <input type="text" name="amount" />
-  <input type="submit" value="Add Expense" />
+  <input type="submit" value="Add Expense" class="show-button" />
 </form>
 
 <section id="calculations">
-  <% if (budget.incomes && budget.incomes.length && budget.expenses &&
-  budget.expenses.length) { %>
+  <% 
+  // Calculate total income and total expenses within the calculations section
+  let totalIncome = budget.incomes.reduce((acc, i) => acc + i.amount, 0);
+  let totalExpenses = budget.expenses.reduce((acc, e) => acc + e.amount, 0);
+  %>
+
   <div>
-    Total Income: <%= budget.incomes.reduce((acc, i) => acc + i.amount, 0) %>
+    Total Income: <%= totalIncome %>
   </div>
   <div>
-    Total Expenses: <%= budget.expenses.reduce((acc, e) => acc + e.amount, 0) %>
+    Total Expenses: <%= totalExpenses %>
   </div>
   <div>
-    Net Income: <%= budget.incomes.reduce((acc, i) => acc + i.amount, 0) -
-    budget.expenses.reduce((acc, e) => acc + e.amount, 0) %>
+    Net Income: <%= totalIncome - totalExpenses %>
   </div>
-  <% } %>
+  
+  <div>
+    <h4>Income Category Percentage of Total Income:</h4>
+    <ul>
+      <% budget.incomes.forEach(function(i) { %>
+        <li><%= i.category %>: <%= ((i.amount / totalIncome) * 100).toFixed(2) %> %</li>
+      <% }); %>
+    </ul>
+  </div>
+
+  <div>
+    <h4>Expense Category Percentage of Total Income:</h4>
+    <ul>
+      <% budget.expenses.forEach(function(e) { %>
+        <li><%= e.category %>: <%= ((e.amount / totalIncome) * 100).toFixed(2) %> %</li>
+      <% }); %>
+    </ul>
+  </div>
 </section>
+
 
 <% if (budget.incomes && budget.incomes.length) { %>
 <table>

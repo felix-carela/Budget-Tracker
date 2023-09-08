@@ -10,8 +10,8 @@ body {
   display: grid;
   grid-template-rows: 50px 1fr;
   grid-template-areas:
-    "nav"
-    "main";
+  "nav"
+  "main";
 }
 
 body > nav {
@@ -215,11 +215,6 @@ hr {
   align-items: center;
 }
 
-.review-user img {
-  border-radius: 50%;
-  height: 40px;
-}
-
 #landing-page {
   display: flex;
   flex-direction: column;
@@ -230,12 +225,18 @@ hr {
 
 #calculations {
   background-color: white;
-  height: 60vh;
+  min-height: 50vh;
   width: 40vh;
   margin-top: 1vh;
   margin-bottom: 1.5vh;
   border-radius: 5px;
   border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-y: scroll;
+  padding: 1vh;
 }
 
 #add-income-form{
@@ -243,6 +244,76 @@ hr {
 }
 
 #add-expense-form{
-  margin-top: .5vh;
+  margin-top: 1vh;
   margin-bottom: .6vh;
+}
+
+@media only screen and (max-width: 1199px) {
+  #add-income-form,
+  #add-expense-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  #add-expense-form {
+    margin-top: 1.5vh;
+  }
+  
+  #calculations {
+    height: 100vh;
+  }
+
+  .show-input {
+    margin-top: .6vh;
+  }
+  
+  .show-button {
+    margin-top: 1vh;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #new-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  #action-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  #view-button {
+    margin-top: .4vh;
+  }
+
+  #add-income-form,
+  #add-expense-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  #add-expense-form {
+    margin-top: 1.5vh;
+  }
+
+  #calculations {
+    height: 100vh;
+  }
+
+  .show-input {
+    margin-top: .6vh;
+  }
+
+  .show-button {
+    margin-top: 1vh;
+  }
 }

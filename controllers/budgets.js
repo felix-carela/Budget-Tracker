@@ -44,8 +44,6 @@ async function updateBudget(req, res) {
   try {
     const budgetId = req.params.id;
     const updatedBudgetData = req.body;
-
-    // Find and update the budget
     const updatedBudget = await Budget.findByIdAndUpdate(
       budgetId,
       updatedBudgetData,
@@ -53,17 +51,15 @@ async function updateBudget(req, res) {
     );
 
     if (!updatedBudget) {
-      // If the budget with the given ID is not found
       return res.status(404).send("Budget not found");
     }
 
-    // Redirect to the updated budget's page or any other desired action
     res.redirect(`/budgets/${updatedBudget._id}`);
   } catch (err) {
     console.error(err);
     res.render('budgets/edit', {
       errorMsg: err.message,
-      budget: req.body, // Pass the original data back to the edit form
+      budget: req.body,
     });
   }
 }
@@ -74,6 +70,6 @@ async function edit(req, res) {
     res.render('budgets/edit', { budget });
   } catch (err) {
     console.error(err);
-    res.redirect('/budgets'); // Redirect to the budgets index or handle the error appropriately
+    res.redirect('/budgets');
   }
 }
