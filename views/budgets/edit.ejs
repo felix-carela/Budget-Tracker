@@ -1,16 +1,13 @@
 <%- include('../partials/header') %>
 
-<h2>Edit Budget</h2>
-<form action="/budgets/<%= budget._id %>?_method=PUT" method="POST">
-  <div class="form-group">
-    <label for="month">Month:</label>
-    <input type="text" id="month" name="month" value="<%= budget.month %>" required>
-  </div>
-  <div class="form-group">
-    <label for="year">Year:</label>
-    <input type="number" id="year" name="year" value="<%= budget.year %>" required>
-  </div>
-  <button type="submit">Update Budget</button>
+<form id="edit-form" action="/budgets/<%= budget._id %>?_method=PUT" method="POST">
+  <label>Name of Creator:</label>
+  <input type="text" name="nameOfCreator" value="<%= budget.nameOfCreator %>" required>
+  <label>Month:</label>
+  <input type="text" name="month" value="<%= budget.month %>" required>
+  <label>Year:</label>
+  <input type="number" name="year" value="<%= budget.year %>" required>
+  <input type="submit" value="Update Budget">
 </form>
 
 <%- include('../partials/footer') %>

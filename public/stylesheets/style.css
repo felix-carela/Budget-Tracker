@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
   font-family: Helvetica;
-  color: #424748;
+  color: black;
 }
 
 body {
@@ -9,24 +9,19 @@ body {
   height: 100vh;
   display: grid;
   grid-template-rows: 50px 1fr;
-  grid-template-areas: 
+  grid-template-areas:
     "nav"
-    "main"
+    "main";
 }
 
 body > nav {
   grid-area: nav;
-  background-color: #B8C0C2;
+  background-color: #72c07f;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-around;
   align-items: center;
   padding: 0 20px 0 30px;
-}
-
-nav > img {
-  width: 34px;
-  object-fit: contain;
-  margin-right: auto;
+  border-bottom: 1px solid black;
 }
 
 body > main {
@@ -34,7 +29,7 @@ body > main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #E8ECEB;
+  background-color: #a8b0ae;
   padding: 20px;
   overflow-y: scroll;
 }
@@ -60,24 +55,40 @@ nav > a.active {
   cursor: default;
 }
 
-#new-form {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(2, minmax(auto, 22rem));
+#new-form,
+#edit-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
 }
 
 #new-form *,
 #add-review-form *,
-#add-performer-form * {
+#add-performer-form *,
+#edit-form * {
   font-size: 20px;
   padding: 5px;
   border-radius: 5px;
 }
 
-#new-form input[type="submit"] {
+
+#dit-form  {
+  margin-top: 5vh;
+}
+
+#new-form label,
+#edit-form label {
+  margin-top: 2vh;
+}
+
+#new-form input[type="submit"],
+#edit-form input[type="submit"] {
   grid-column: span 2;
   width: 10rem;
   margin-left: auto;
+  margin-top: 1vh;
 }
 
 table {
@@ -94,19 +105,36 @@ table td {
   text-align: center;
 }
 
-#list td:nth-child(2), #list td:nth-child(3){
+#list td:nth-child(2),
+#list td:nth-child(3) {
   min-width: 100px;
 }
 
 #list a {
-  border-radius: 4px;
-  background-color: #B8C0C2;
+  border: 1px solid black;
+  background-color: #72c07f;
   padding: 4px;
   text-decoration: none;
   font-size: 14px;
+  color: black;
+  border-radius: 4px;
+}
+
+#list button {
+  border-radius: 4px;
+  background-color: #72c07f;
+  padding: 4px;
+  text-decoration: none;
+  font-size: 14px;
+  margin-top: 4px;
+  color: black;
 }
 
 #list a:hover {
+  background-color: white;
+}
+
+#list button:hover {
   background-color: white;
 }
 
@@ -114,6 +142,10 @@ table td {
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 1rem;
+}
+
+#show-page div {
+  font-size: 2.2vh;
 }
 
 #show-page div:nth-child(even) {
@@ -129,31 +161,30 @@ table td {
 }
 
 #add-review-form input[type="submit"],
-#add-performer-form input[type="submit"]  {
+#add-performer-form input[type="submit"] {
   width: 10rem;
   grid-column: 2 / 3;
 }
 
 hr {
-  color: #424748
+  color: #424748;
 }
 
 #badge-container {
   display: flex;
   flex-wrap: wrap;
-  /* padding: 1rem; */
   width: 80%;
-  border: 2px solid #B8C0C2;
-  border-radius: .5rem;
-  margin: .5rem 0 2rem;
+  border: 2px solid #b8c0c2;
+  border-radius: 0.5rem;
+  margin: 0.5rem 0 2rem;
 }
 
 .badge {
-  background-color: #B8C0C2;
-  padding: .5rem;
-  margin: .5rem;
-  border-radius: .3rem;
-  font-size: .8rem;
+  background-color: #b8c0c2;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  border-radius: 0.3rem;
+  font-size: 0.8rem;
   text-align: center;
 }
 
@@ -162,7 +193,7 @@ hr {
   padding: 0;
   list-style: none;
 }
-  
+
 #show-page li {
   font-weight: bold;
 }
@@ -187,4 +218,31 @@ hr {
 .review-user img {
   border-radius: 50%;
   height: 40px;
+}
+
+#landing-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+#calculations {
+  background-color: white;
+  height: 60vh;
+  width: 40vh;
+  margin-top: 1vh;
+  margin-bottom: 1.5vh;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+#add-income-form{
+  margin-top: 2vh;
+}
+
+#add-expense-form{
+  margin-top: .5vh;
+  margin-bottom: .6vh;
 }

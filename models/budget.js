@@ -2,6 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const incomeSchema = new Schema({
+  category: {
+    type: String,
+    enum: ['Salary', 'Investments', 'Other'],
+    required: true
+  },
   incomeName: {
     type: String,
     required: true,
@@ -20,6 +25,11 @@ const incomeSchema = new Schema({
 });
 
 const expenseSchema = new Schema({
+  category: {
+    type: String,
+    enum: ['Housing', 'Transportation', 'Food', 'Medical', 'Personal', 'Debt', 'Discretionary', 'Other'],
+    required: true
+  },
   expenseName: {
     type: String,
     required: true
@@ -39,6 +49,7 @@ const expenseSchema = new Schema({
 });
 
 const budgetSchema = new Schema({
+  nameOfCreator: { type: String, required: true },
   month: { type: String, required: true },
   year: {
     type: Number,
