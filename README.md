@@ -21,6 +21,7 @@ My app is a budget tracker, an app able to keep track of users's budget informat
 <img width="1440" alt="Budget Tracker Login Page" src="https://github.com/felix-carela/budget-tracker/assets/118142332/e0707e20-978a-4052-b766-2d49a1191233">
 
 
+
 **User Home Page**
 ![image](https://git.generalassemb.ly/felix-carela-GA/Project-2-Proposal/blob/main/Budget%20Tracker%20Home%20Page.png)
 
