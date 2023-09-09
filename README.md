@@ -34,7 +34,7 @@ My app is a budget tracker, an app able to keep track of users's budget informat
 ## Getting Started
 
 - Clone or download this repository.
-- ![Heroku](https://felix-carela-minesweeper.netlify.app/](https://budget-tracker-personal-1f8843fab364.herokuapp.com/budgets)
+- ![Heroku](https://budget-tracker-personal-1f8843fab364.herokuapp.com/budgets)
 
 ## Next Steps
 
