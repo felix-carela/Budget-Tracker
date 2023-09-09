@@ -17,22 +17,19 @@ My app is a budget tracker, an app able to keep track of users's budget informat
 
 ## Screenshots
 **Login Page**
-![image](https://git.generalassemb.ly/felix-carela-GA/Project-2-Proposal/blob/main/Budget%20Tracker%20Login%20Page.png)
-<img width="1440" alt="Budget Tracker Login Page" src="https://github.com/felix-carela/budget-tracker/assets/118142332/e0707e20-978a-4052-b766-2d49a1191233">
-
-
+<img width="1440" alt="Budget Tracker Login Page" src="https://github.com/felix-carela/budget-tracker/assets/118142332/2a1546c0-3fcb-48e7-a2ff-c18e0e95cc69">
 
 **User Home Page**
-![image](https://git.generalassemb.ly/felix-carela-GA/Project-2-Proposal/blob/main/Budget%20Tracker%20Home%20Page.png)
+<img width="1440" alt="Budget Tracker Home Page" src="https://github.com/felix-carela/budget-tracker/assets/118142332/dae5242a-21eb-4cf5-8fd9-5116fc52207c">
 
 **Add Budget**
-![image](https://git.generalassemb.ly/felix-carela-GA/Project-2-Proposal/blob/main/Budget%20Tracker%20Add%20Budget%20Page.png)
+<img width="1440" alt="Budget Tracker Add Budget Page" src="https://github.com/felix-carela/budget-tracker/assets/118142332/517cea08-fc24-4ac7-94d8-2fe83237f7f5">
 
 **Edit Budget**
-![image](https://git.generalassemb.ly/felix-carela-GA/Project-2-Proposal/blob/main/Budget%20Tracker%20Edit%20Budget%20Page.png)
+<img width="1440" alt="Budget Tracker Edit Budget Page" src="https://github.com/felix-carela/budget-tracker/assets/118142332/216e3a2e-21f0-4767-b8b2-62136e4d6d02">
 
 **Show Budget**
-![image](https://git.generalassemb.ly/felix-carela-GA/Project-2-Proposal/blob/main/Budget%20Tracker%20Info%20Page.png)
+<img width="1440" alt="Budget Tracker Info Page" src="https://github.com/felix-carela/budget-tracker/assets/118142332/d8926733-a7c7-4c68-88b2-1bc0e3d2fa8f">
 
 ## Getting Started
 
