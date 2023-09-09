@@ -38,4 +38,4 @@ My app is a budget tracker, an app able to keep track of users's budget informat
 
 ## Next Steps
 
--I will like to implement a system that uses Google ID to create personal budgets that only the authenticated user can see and use.
+- I will like to implement a system that uses Google ID to create personal budgets that only the authenticated user can see and use.
