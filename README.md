@@ -1,37 +1,44 @@
-# Minesweeper
+# Budget Tracker
 
-My game is Minesweeper, a game that challenges your logic and deduction skills. The game is played on a grid of cells, where some cells contain hidden bombs. The objective is to reveal all cells that are safe (not containing bombs) while avoiding the bombs. When a cell that is not a bomb is revevealed it will show a number from 0 to 8, the number being the amount of bombs next to the cell. Through logic you can calculate where the mines are at, and then flag them by right-clicking. If you reveal a cell with a bomb, the game is over.
+My app is a budget tracker, an app able to keep track of users's budget information. The users will be able to input their income and expenses, the app will then calculate the amount of money available to the user according to the information inputed. The user will be able to budget for one month at a time. Additionally, the user is able to choose a category when inputting an income or expense. The app will use this to output additional information about the user's income and expense habits.
 
 ## Technologies Used
 
-- `index.html`: The main HTML file for the game.
-- `main.css`: The CSS file for styling the game interface.
-- `main.js`: The JavaScript file containing the game logic.
+- `HTML`
+- `CSS`
+- `JavaScript`
+- `Node.js`
+- `Express`
+- `Google Oauth`
+- `EJS`
+- `JSON`
+- `Mongoose`
+- `MongoDb`
 
 ## Screenshots
-#### Game at start.
-![Start of Game](images/game-start.png)
+**Login Page**
+![image](https://git.generalassemb.ly/felix-carela-GA/Project-2-Proposal/blob/main/Budget%20Tracker%20Login%20Page.png)
 
-#### Game after losing.
+**User Home Page**
+![image](https://git.generalassemb.ly/felix-carela-GA/Project-2-Proposal/blob/main/Budget%20Tracker%20Home%20Page.png)
 
-![End of Game](images/game-end.png)
+**Add Budget**
+![image](https://git.generalassemb.ly/felix-carela-GA/Project-2-Proposal/blob/main/Budget%20Tracker%20Add%20Budget%20Page.png)
+
+**Edit Budget**
+![image](https://git.generalassemb.ly/felix-carela-GA/Project-2-Proposal/blob/main/Budget%20Tracker%20Edit%20Budget%20Page.png)
+
+**Show Budget**
+![image](https://git.generalassemb.ly/felix-carela-GA/Project-2-Proposal/blob/main/Budget%20Tracker%20Info%20Page.png)
+
+## Entity Relationship Diagram
+![image](https://git.generalassemb.ly/felix-carela-GA/Project-2-Proposal/blob/main/BT%20ERD.drawio.png)
 
 ## Getting Started
 
 - Clone or download this repository.
-- [GitHub Pages](https://felix-carela.github.io/Minesweeper/)
-- [Netlify](https://felix-carela-minesweeper.netlify.app/)
-
-
-### Game Controls
-
-- **Left-click:** Reveal a cell.
-- **Right-click:** Place a flag (or remove it) on a cell.
+- [Heroku]([https://felix-carela-minesweeper.netlify.app/](https://budget-tracker-personal-1f8843fab364.herokuapp.com/budgets))
 
 ## Next Steps
 
-Here are some possible enhancements for this Minesweeper game:
-
-- Add different difficulty levels.
-- Implement a win streak counter.
-- Improve the visual design and user experience.
+I will like to implement a system that uses Google ID to create personal budgets that only the authenticated user can see and use.
