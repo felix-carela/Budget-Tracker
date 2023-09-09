@@ -31,13 +31,10 @@ My app is a budget tracker, an app able to keep track of users's budget informat
 **Show Budget**
 ![image](https://git.generalassemb.ly/felix-carela-GA/Project-2-Proposal/blob/main/Budget%20Tracker%20Info%20Page.png)
 
-## Entity Relationship Diagram
-![image](https://git.generalassemb.ly/felix-carela-GA/Project-2-Proposal/blob/main/BT%20ERD.drawio.png)
-
 ## Getting Started
 
 - Clone or download this repository.
-- [Heroku]([https://felix-carela-minesweeper.netlify.app/](https://budget-tracker-personal-1f8843fab364.herokuapp.com/budgets))
+- [Heroku](https://felix-carela-minesweeper.netlify.app/](https://budget-tracker-personal-1f8843fab364.herokuapp.com/budgets)
 
 ## Next Steps
 
